@@ -1,0 +1,39 @@
+.header-main {
+    display: flex;
+    background-color: brown;
+    height: 150px;
+    justify-content: space-between;
+
+}
+
+.header-logo {
+    flex-basis: 300px;
+    flex-shrink: 1;
+    margin:  20px 40px;
+
+}
+
+.header-main__img {
+    width: 100%;
+}
+.header-main__nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: green;
+    margin-right: 10%;
+    flex-basis: 300px;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+
+}
+
+.link {
+    text-decoration: none;
+    font-size: 21px;
+    color: black;
+    margin-left: 20px;
+}
+
+li {
+    list-style: none;
+}
