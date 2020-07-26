@@ -1,18 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import './preview.css'
-import AutoService from "../../services/auto-service";
 
-const Preview = () => {
-    const [item,setItem] = useState({})
-    const AutoService = new AutoService()
-    useEffect(() => {
-        setItem(AutoService.getPreviewBmw())
-    },[])
 
+const Preview = (props) => {
+    let clazz = 'preview-text '
+    let name = 'Show'
+
+    if (props.showInfo) {
+        clazz += 'text-style'
+        name = 'Close'
+    }
     return (
         <div>
-            <div className="preview-img">
-                <img src={item.img} alt="img"/>
+            <div className="preview-img-container">
+                <img src={props.item.img} alt="img" className="preview-img"/>
+                <button className="preview-btn" onClick={props.onAddClass}>{name} information</button>
+                <div className={clazz}>
+                    {props.item.text}</div>
             </div>
         </div>
     )
