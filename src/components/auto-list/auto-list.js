@@ -1,13 +1,15 @@
 import React from "react";
 import './auto-list.css'
+import {withRouter} from 'react-router-dom'
 
 import AutoListItem from "../auto-list-item";
 
-const AutoList = ({autoList}) => {
-
+const AutoList = ({autoList, history}) => {
     const items = autoList.map((items) => {
         return (
-            <AutoListItem key={items.id} items={items}/>
+            <AutoListItem key={items.id} items={items} onItemSelected={(itemId) => {
+                history.push(`/auto/${itemId}`)
+            }}/>
         )
     })
 
@@ -21,4 +23,4 @@ const AutoList = ({autoList}) => {
 
 
 
-export default AutoList
+export default withRouter(AutoList)

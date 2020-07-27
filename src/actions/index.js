@@ -26,6 +26,14 @@ const fetchAuto = (autoService, dispatch) => () => {
         .catch((error) => dispatch(autoError(error)))
 }
 
+const itemToDetails = (id) => {
+    return {
+        type: 'ITEM_TO_DETAILS',
+        payload: id
+    }
+}
+
 export {
-    fetchAuto
+    fetchAuto,
+    itemToDetails
 }

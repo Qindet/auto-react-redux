@@ -131,4 +131,11 @@ export default class AutoService {
             return setTimeout(()=> resolve(items), 1000)
         }))
     }
+    getItem =  (id) => {
+        return new Promise(async (resolve)  => {
+            const items = await this.getBmwItems()
+            const res = items.find((item) => item.id === id)
+            return setTimeout(() => resolve(res), 500)
+        })
+    }
 }

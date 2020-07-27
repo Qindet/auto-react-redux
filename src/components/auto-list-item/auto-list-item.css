@@ -4,10 +4,10 @@
     margin-top: 50px;
     margin-bottom: 50px;
     position: relative;
+    margin-left: 50px;
 }
 
 .auto-list-item__img:hover {
-    cursor: pointer;
     opacity: 0.6;
 }
 
@@ -25,6 +25,20 @@
     text-align: center;
 }
 
+.item-link a{
+    text-decoration: none;
+}
 
+.item-link {
+    position: absolute;
+    right: 5%;
+    bottom: -12%;
+    cursor: pointer;
+    font-size: 22px;
+    color: grey;
+}
 
+.item-link a:hover{
+    opacity: 0.7;
+}
 

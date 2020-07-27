@@ -1,6 +1,34 @@
 
 .preview-img-container {
     position: relative;
+    margin: 0 auto;
+
+}
+
+@media (min-width: 576px) {
+    .preview-img-container {
+        width: 500px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .preview-img-container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .preview-img-container {
+        width: 950px;
+    }
+}
+
+
+@media (min-width: 1400px) {
+    .preview-img-container {
+        width: 1400px;
+    }
 }
 
 .preview-img {
@@ -9,8 +37,8 @@
 }
 
 .preview-text {
-    display: none;
-    border: 2px solid black;
+
+    border: 2px solid white;
     border-radius: 10%;
     opacity: 0.5;
     position: absolute;
@@ -21,11 +49,10 @@
     font-size: 21px;
     font-family: "Roboto Light";
     color: white;
+    opacity: 0;
+    transition: opacity 1s linear;
 }
 
-.preview-text:hover {
-    opacity: 0.9;
-}
 
 .preview-btn {
     z-index: 10;
@@ -41,6 +68,7 @@
 }
 
 .text-style {
-    display: block;
+    opacity: 0.9;
+
 }
 

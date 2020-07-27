@@ -1,0 +1,19 @@
+.auto-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.auto-details__img {
+    width: 600px;
+    height: 200px;
+}
+
+.auto-details__img img {
+    width: 100%;
+}
+
+.details-text {
+    font-size: 18px;
+}

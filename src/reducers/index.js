@@ -1,7 +1,8 @@
 const initialState = {
     autoList: [],
     loadingList: true,
-    errorList: false
+    errorList: false,
+    itemToDetails: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ const reducer = (state = initialState, action) => {
                 loadingList: false,
                 errorList: action.payload,
                 autoList: []
+            }
+        case 'ITEM_TO_DETAILS':
+            return {
+                ...state,
+                itemToDetails: action.payload
             }
         default:
             return state
