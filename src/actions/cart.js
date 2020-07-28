@@ -5,8 +5,23 @@ const itemAdded = (item) => {
     }
 }
 
+const itemDeleted = (id) => {
+    return {
+        type: 'ITEM_DELETED_FROM_CART',
+        payload: id
+    }
+}
+
+const allItemsDeleted = (id) => {
+    return {
+        type: 'ALL_ITEMS_DELETED_FROM_CART',
+        payload: id
+    }
+}
 
 
 export {
-    itemAdded
+    itemAdded,
+    itemDeleted,
+    allItemsDeleted
 }

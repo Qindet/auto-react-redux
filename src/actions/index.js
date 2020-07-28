@@ -1,9 +1,11 @@
 import {fetchAutoItem} from "./auto-item";
 import {fetchAutoList} from "./auto-list";
-import {itemAdded} from "./cart";
+import {itemAdded,itemDeleted, allItemsDeleted} from "./cart";
 
 export {
     fetchAutoList,
     fetchAutoItem,
-    itemAdded
+    itemAdded,
+    itemDeleted,
+    allItemsDeleted
 }

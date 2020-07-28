@@ -1,24 +1,25 @@
 import React from "react";
 import {connect} from "react-redux";
 import './cart.css'
+import {allItemsDeleted, itemAdded, itemDeleted} from "../../actions";
 
-const Cart = ({items, total}) => {
+const Cart = ({items, total, itemAdded, itemDeleted, allItemsDeleted}) => {
     const renderRow = (item, idx) => {
-        const {id, name, price, count} = item
+        const {id, name, total, count} = item
         return (
             <tr key={id}>
                 <td>{idx + 1}</td>
                 <td>{name}</td>
                 <td>{count}</td>
-                <td>$ {price}</td>
+                <td>$ {total}</td>
                 <td>
-                    <button>
+                    <button onClick={() => itemAdded(item)}>
                         <i className="fa fa-plus-square"></i>
                     </button>
-                    <button>
+                    <button onClick={() => itemDeleted(id)}>
                         <i className="fa fa-minus-square"></i>
                     </button>
-                    <button>
+                    <button onClick={() => allItemsDeleted(id)}>
                         <i className="fa fa-trash"></i>
                     </button>
                 </td>
@@ -53,10 +54,19 @@ const Cart = ({items, total}) => {
     )
 }
 
-const mapStateToProps = ({cartReducer: {items}}) => {
+const mapStateToProps = ({cartReducer: {items, total}}) => {
     return {
-        items
+        items,
+        total
     }
 }
 
-export default connect(mapStateToProps)(Cart)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        itemAdded: (item) => dispatch(itemAdded(item)),
+        itemDeleted: (id) => dispatch(itemDeleted(id)),
+        allItemsDeleted: (id) => dispatch(allItemsDeleted(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
