@@ -20,7 +20,7 @@ export default class AutoService {
                     name: 'BMW X5',
                     price: '10000$',
                     img: 'https://avatars.mds.yandex.net/get-pdb/985144/28cdebf6-d2fe-4975-b476-f5aa9250cc41/s1200?webp=false',
-                    details: ''
+                    details: 'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss'
                 },
                 {
                     id: 2,
@@ -134,7 +134,7 @@ export default class AutoService {
     getItem =  (id) => {
         return new Promise(async (resolve)  => {
             const items = await this.getBmwItems()
-            const res = items.find((item) => item.id === id)
+            const res = items.find((item) => item.id === +id)
             return setTimeout(() => resolve(res), 500)
         })
     }

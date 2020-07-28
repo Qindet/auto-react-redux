@@ -1,19 +1,46 @@
-.auto-details {
+.auto-details-main {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 100px;
+    max-width: 1200px;
+    margin: 100px auto;
+
+    border: 1px solid black;
+    padding: 20px;
+
 }
+
+.auto-details {
+    position: relative;
+}
+.auto-details__main {
+    max-width: 300px;
+   word-wrap: break-word;
+    margin-top: 50px;
+    max-height: 500px;
+    overflow: hidden;
+}
+
 
 .auto-details__img {
     width: 600px;
-    height: 200px;
+    max-height: 400px;
+    margin-right: 20px;
 }
 
 .auto-details__img img {
     width: 100%;
+    border-radius: 20%;
+    height: 100%;
 }
 
 .details-text {
     font-size: 18px;
+    margin-top: 10px;
+}
+
+.btn-details {
+    position: absolute;
+    bottom: 20px;
+    right: 150px;
 }

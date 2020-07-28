@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 
 import withService from "../components/hoc/with-service";
-import {fetchAuto, itemToDetails} from "../actions";
+import {fetchAutoList} from "../actions";
 import AutoList from "../components/auto-list";
 import Spinner from "../components/spinner";
 import ErrorIndicator from "../components/error-indicator";
@@ -39,7 +39,7 @@ const mapStateToProps = ({autoList,loadingList,errorList}) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     const {autoService} = ownProps
     return {
-        fetchAuto: fetchAuto(autoService, dispatch)
+        fetchAuto: fetchAutoList(autoService, dispatch)
     }
 }
 

@@ -3,7 +3,7 @@ import './app.css'
 import Header from "../header";
 import {Route, Switch, Redirect} from 'react-router-dom'
 import {MainPage} from "../pages/main-page";
-import AutoItemDetails from "../auto-item-details/auto-item-details";
+import AutoItemDetailsContainer from "../../containers/auto-item-details-container";
 
 const App = () => {
 
@@ -14,11 +14,9 @@ const App = () => {
                 <Route path="/" component={MainPage} exact/>
                 <Route path="/auto/:id" render={({match}) => {
                     const {id} = match.params
-                    return <AutoItemDetails itemId={id}/>
+                    return <AutoItemDetailsContainer itemId={id}/>
                 }} />
             </Switch>
-
-
         </div>
 
     )

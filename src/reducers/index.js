@@ -2,7 +2,9 @@ const initialState = {
     autoList: [],
     loadingList: true,
     errorList: false,
-    itemToDetails: {}
+    autoItem: {},
+    loadingItem: true,
+    errorItem: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -21,17 +23,33 @@ const reducer = (state = initialState, action) => {
                 errorList: false,
                 autoList: action.payload
             }
-        case 'FETCH_AUTO_ERROR':
+        case 'FETCH_AUTO_FAILED':
             return {
                 ...state,
                 loadingList: false,
                 errorList: action.payload,
                 autoList: []
             }
-        case 'ITEM_TO_DETAILS':
+        case 'FETCH_ITEM_REQUESTED':
             return {
                 ...state,
-                itemToDetails: action.payload
+                loadingItem: true,
+                errorList: false,
+                autoItem: {}
+            }
+        case 'FETCH_ITEM_LOADED':
+            return {
+                ...state,
+                loadingItem: false,
+                errorItem: false,
+                autoItem: action.payload
+            }
+        case 'FETCH_ITEM_FAILED':
+            return {
+                ...state,
+                loadingItem: false,
+                errorItem: action.payload,
+                autoItem: {}
             }
         default:
             return state
