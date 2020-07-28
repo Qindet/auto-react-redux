@@ -2,13 +2,13 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 
 import withService from "../components/hoc/with-service";
-import {fetchAutoList} from "../actions";
+import {fetchAutoList, itemAdded} from "../actions";
 import AutoList from "../components/auto-list";
 import Spinner from "../components/spinner";
 import ErrorIndicator from "../components/error-indicator";
 import compose from "../utils";
 
-const AutoListContainer = ({autoList, loadingList, errorList, fetchAuto}) => {
+const AutoListContainer = ({autoList, loadingList, errorList, fetchAuto, itemAdded}) => {
     useEffect(() => {
         fetchAuto()
     }, [fetchAuto])
@@ -23,12 +23,12 @@ const AutoListContainer = ({autoList, loadingList, errorList, fetchAuto}) => {
 
     return (
         <div className="auto-list">
-            <AutoList autoList={autoList} />
+            <AutoList autoList={autoList} itemAdded={itemAdded}/>
         </div>
     )
 }
 
-const mapStateToProps = ({autoList,loadingList,errorList}) => {
+const mapStateToProps = ({autoListReducer: {autoList,loadingList,errorList}}) => {
     return {
         autoList,
         loadingList,
@@ -39,7 +39,8 @@ const mapStateToProps = ({autoList,loadingList,errorList}) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     const {autoService} = ownProps
     return {
-        fetchAuto: fetchAutoList(autoService, dispatch)
+        fetchAuto: fetchAutoList(autoService, dispatch),
+        itemAdded: (item) => dispatch(itemAdded(item))
     }
 }
 

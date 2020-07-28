@@ -16,7 +16,7 @@ const AutoItemDetails = (props) => {
                 </div>
             </div>
 
-            <button className="btn-details">Add to cart</button>
+            <button className="btn-details" onClick={() => props.itemAdded(props.autoItem)}>Add to cart</button>
         </div>
     )
 }

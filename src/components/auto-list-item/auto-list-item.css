@@ -38,6 +38,16 @@
     color: grey;
 }
 
+
+.item-link-2 {
+    position: absolute;
+    left: 5%;
+    bottom: -12%;
+    cursor: pointer;
+    font-size: 22px;
+    color: grey;
+}
+
 .item-link a:hover{
     opacity: 0.7;
 }

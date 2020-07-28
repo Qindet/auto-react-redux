@@ -1,16 +1,17 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import withService from "../components/hoc/with-service"
-import {fetchAutoItem} from "../actions"
+import {fetchAutoItem, itemAdded} from "../actions"
 import AutoItemDetails from "../components/auto-item-details";
 import Spinner from "../components/spinner";
 import ErrorIndicator from "../components/error-indicator";
+import compose from "../utils";
 
-const AutoItemDetailsContainer = ({fetchItem,autoItem, loadingItem, errorItem, itemId}) => {
+const AutoItemDetailsContainer = ({fetchItem,autoItem, loadingItem, errorItem, itemId, itemAdded}) => {
 
     useEffect(() => {
         fetchItem(itemId)
-    },[fetchItem])
+    },[fetchItem,itemId])
 
     if (loadingItem) {
         return <Spinner/>
@@ -20,10 +21,10 @@ const AutoItemDetailsContainer = ({fetchItem,autoItem, loadingItem, errorItem, i
         return <ErrorIndicator/>
     }
 
-    return <AutoItemDetails autoItem={autoItem}/>
+    return <AutoItemDetails autoItem={autoItem} itemAdded={itemAdded}/>
 }
 
-const mapStateToProps = ({autoItem, loadingItem, errorItem}) => {
+const mapStateToProps = ({autoItemReducer:{autoItem, loadingItem, errorItem}}) => {
     return {
         autoItem,
         loadingItem,
@@ -34,9 +35,10 @@ const mapStateToProps = ({autoItem, loadingItem, errorItem}) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     const {autoService} = ownProps
     return {
-        fetchItem: (id) => fetchAutoItem(autoService, dispatch,id)
+        fetchItem: (id) => fetchAutoItem(autoService, dispatch,id),
+        itemAdded: (item) => dispatch(itemAdded(item))
     }
 }
 
 // возможно нужен подход для одного запроса а не получения из всего скорее всего нужно так и сделать
-export default withService()(connect(mapStateToProps, mapDispatchToProps)(AutoItemDetailsContainer))
+export default compose(withService(), connect(mapStateToProps, mapDispatchToProps))(AutoItemDetailsContainer)

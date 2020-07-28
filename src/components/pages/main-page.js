@@ -3,7 +3,7 @@ import React, {Fragment} from "react";
 import PreviewContainer from "../../containers/preview-container";
 
 import AutoListContainer from "../../containers/auto-list-container";
-import AutoItemDetails from "../auto-item-details";
+
 
 const MainPage = () => {
 
@@ -11,7 +11,6 @@ const MainPage = () => {
         <Fragment>
             <PreviewContainer />
             <AutoListContainer />
-
         </Fragment>
     )
 }
