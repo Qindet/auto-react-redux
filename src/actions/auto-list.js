@@ -19,9 +19,10 @@ const autoError = (error) => {
     }
 }
 
-const fetchAutoList = (autoService, dispatch) => () => {
+const fetchAutoList = ( dispatch, service)  => {
+
     dispatch(autoRequested())
-    autoService.getBmwItems()
+    service.getItems()
         .then((items) => dispatch(autoLoaded(items)))
         .catch((error) => dispatch(autoError(error)))
 }

@@ -13,6 +13,7 @@ const Preview = (props) => {
     return (
         <div>
             <div className="preview-img-container">
+                <div>{props.item.name}</div>
                 <img src={props.item.img} alt="img" className="preview-img"/>
                 <button className="preview-btn" onClick={props.onAddClass}>{name} information</button>
                 <div className={clazz}>

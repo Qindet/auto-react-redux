@@ -5,7 +5,7 @@
     max-width: 1200px;
     margin: 100px auto;
 
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 20px;
 
 }
@@ -14,11 +14,12 @@
     position: relative;
 }
 .auto-details__main {
-    max-width: 300px;
+    max-width: 500px;
    word-wrap: break-word;
     margin-top: 50px;
-    max-height: 500px;
     overflow: hidden;
+    flex-grow: 1;
+    min-height: 500px;
 }
 
 
@@ -26,6 +27,8 @@
     width: 600px;
     max-height: 400px;
     margin-right: 20px;
+    margin-top: 100px;
+
 }
 
 .auto-details__img img {
@@ -43,4 +46,7 @@
     position: absolute;
     bottom: 20px;
     right: 150px;
+    font-size: 22px;
+    color: grey;
+    cursor: pointer;
 }

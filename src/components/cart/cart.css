@@ -1,10 +1,25 @@
 .cart-table {
     margin-top: 45px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .cart-table table,th,td{
-    border: 1px solid black;
+    border: 1px solid darkgray;
     border-collapse: collapse;
+}
+
+.cart-table td {
+    padding: 15px;
+}
+.cart-table th {
+    padding: 15px;
+}
+.cart-image {
+    max-width: 300px;
+    max-height: 100px;
+    border-radius: 20%;
 }
 
 .cart-table .total-price {
@@ -16,4 +31,10 @@
 .cart-table button {
     margin-left: 5px;
     margin-top: 5px;
+}
+
+.add-text {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 27px;
 }

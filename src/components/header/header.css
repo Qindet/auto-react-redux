@@ -1,6 +1,6 @@
 .header-main {
     display: flex;
-    background-color: brown;
+    background-color: ghostwhite;
     height: 150px;
     justify-content: space-between;
 
@@ -10,21 +10,22 @@
     flex-basis: 300px;
     flex-shrink: 1;
     margin:  20px 40px;
-
+    flex-grow: 1;
 }
 
 .header-main__img {
     width: 100%;
+
 }
 .header-main__nav {
     display: flex;
     justify-content: space-around;
-    background-color: green;
+    background-color: white;
     margin-right: 10%;
     flex-basis: 300px;
     flex-shrink: 1;
     flex-wrap: wrap;
-
+    flex-grow: 4;
 }
 
 .link {

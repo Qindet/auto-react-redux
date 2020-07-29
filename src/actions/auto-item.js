@@ -20,10 +20,10 @@ const autoItemError = (error) => {
     }
 }
 
-const fetchAutoItem = (autoService, dispatch, id) =>  {
+const fetchAutoItem = (service, dispatch, id) =>  {
 
     dispatch(autoItemRequested())
-    autoService.getItem(id)
+    service.getItem(id)
         .then((item) => {
             dispatch(autoItemLoaded(item))
         })

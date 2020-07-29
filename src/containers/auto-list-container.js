@@ -8,10 +8,11 @@ import Spinner from "../components/spinner";
 import ErrorIndicator from "../components/error-indicator";
 import compose from "../utils";
 
-const AutoListContainer = ({autoList, loadingList, errorList, fetchAuto, itemAdded}) => {
+const AutoListContainer = ({autoList, loadingList, errorList, fetchAuto, itemAdded, service}) => {
+    console.log(service)
     useEffect(() => {
-        fetchAuto()
-    }, [fetchAuto])
+        fetchAuto(service)
+    }, [fetchAuto, service])
 
     if (loadingList) {
         return <Spinner/>
@@ -28,18 +29,18 @@ const AutoListContainer = ({autoList, loadingList, errorList, fetchAuto, itemAdd
     )
 }
 
-const mapStateToProps = ({autoListReducer: {autoList,loadingList,errorList}}) => {
+const mapStateToProps = ({autoListReducer: {autoList,loadingList,errorList},serviceReducer:{service}}) => {
     return {
         autoList,
         loadingList,
-        errorList
+        errorList,
+        service
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    const {autoService} = ownProps
+const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAuto: fetchAutoList(autoService, dispatch),
+        fetchAuto: (service) => fetchAutoList(dispatch, service),
         itemAdded: (item) => dispatch(itemAdded(item))
     }
 }

@@ -7,11 +7,11 @@ import Spinner from "../components/spinner";
 import ErrorIndicator from "../components/error-indicator";
 import compose from "../utils";
 
-const AutoItemDetailsContainer = ({fetchItem,autoItem, loadingItem, errorItem, itemId, itemAdded}) => {
+const AutoItemDetailsContainer = ({fetchItem,autoItem, loadingItem, errorItem, itemId, itemAdded,service}) => {
 
     useEffect(() => {
-        fetchItem(itemId)
-    },[fetchItem,itemId])
+        fetchItem(itemId,service)
+    },[fetchItem,itemId,service])
 
     if (loadingItem) {
         return <Spinner/>
@@ -24,18 +24,18 @@ const AutoItemDetailsContainer = ({fetchItem,autoItem, loadingItem, errorItem, i
     return <AutoItemDetails autoItem={autoItem} itemAdded={itemAdded}/>
 }
 
-const mapStateToProps = ({autoItemReducer:{autoItem, loadingItem, errorItem}}) => {
+const mapStateToProps = ({autoItemReducer:{autoItem, loadingItem, errorItem},serviceReducer:{service}}) => {
     return {
         autoItem,
         loadingItem,
-        errorItem
+        errorItem,
+        service
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    const {autoService} = ownProps
+const mapDispatchToProps = (dispatch) => {
     return {
-        fetchItem: (id) => fetchAutoItem(autoService, dispatch,id),
+        fetchItem: (id,service) => fetchAutoItem(service, dispatch,id),
         itemAdded: (item) => dispatch(itemAdded(item))
     }
 }

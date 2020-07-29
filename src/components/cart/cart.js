@@ -5,11 +5,12 @@ import {allItemsDeleted, itemAdded, itemDeleted} from "../../actions";
 
 const Cart = ({items, total, itemAdded, itemDeleted, allItemsDeleted}) => {
     const renderRow = (item, idx) => {
-        const {id, name, total, count} = item
+        const {id, name, total, count,img} = item
         return (
             <tr key={id}>
                 <td>{idx + 1}</td>
                 <td>{name}</td>
+                <td><img src={img} className="cart-image"/></td>
                 <td>{count}</td>
                 <td>$ {total}</td>
                 <td>
@@ -27,7 +28,9 @@ const Cart = ({items, total, itemAdded, itemDeleted, allItemsDeleted}) => {
             </tr>
         )
     }
-
+    if (items.length === 0) {
+        return <div className="add-text">Add something to the cart</div>
+    }
     return (
         <div className="cart-table">
             <table className="table">
@@ -35,6 +38,7 @@ const Cart = ({items, total, itemAdded, itemDeleted, allItemsDeleted}) => {
                     <tr>
                         <th>№</th>
                         <th>Item</th>
+                        <th>Image</th>
                         <th>Count</th>
                         <th>Price</th>
                         <th>Action</th>

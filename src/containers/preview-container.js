@@ -11,7 +11,7 @@ const PreviewContainer = ({autoService}) => {
     const [showInfo,setShowInfo] = useState(false)
     useEffect(() => {
         setItemLoading(true)
-        autoService.getPreviewBmw()
+        autoService.getPreview()
             .then((item) => {
                 setItem(item)
                 setItemLoading(false)

@@ -12,7 +12,7 @@ const AutoItemDetails = (props) => {
                 <div className="auto-details__main">
                     <div className="details-text"><strong>Model: </strong>{name}</div><br/>
                     <div className="details-text"><strong>Information: </strong>{details}</div><br/>
-                    <div className="details-text"><strong>Price: </strong>{price}</div>
+                    <div className="details-text"><strong>Price: </strong>{price}$</div>
                 </div>
             </div>
 
