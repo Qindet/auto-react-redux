@@ -16,8 +16,8 @@ const Header = ({changeService}) => {
            </div>
 
            <ul className="header-main__nav">
-               <li><button onClick={() => changeService(new BmwService())}>BMW</button></li>
-               <li><button onClick={() => changeService(new WagService())}>VolksWagen</button></li>
+               <li><button className="btn-context" onClick={() => changeService(new BmwService())}>BMW</button></li>
+               <li><button className="btn-context" onClick={() => changeService(new WagService())}>VolksWagen</button></li>
                <li><Link className="link" to="/">Home</Link></li>
                <li><a className="link" href="#">List</a></li>
                <li><Link className="link" to="/cart">Cart</Link></li>

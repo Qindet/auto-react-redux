@@ -17,6 +17,11 @@
     width: 100%;
 
 }
+.btn-context {
+    cursor: pointer;
+    padding: 5px;
+}
+
 .header-main__nav {
     display: flex;
     justify-content: space-around;

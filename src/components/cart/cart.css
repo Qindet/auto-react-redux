@@ -3,6 +3,9 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .cart-table table,th,td{
@@ -11,10 +14,10 @@
 }
 
 .cart-table td {
-    padding: 15px;
+    padding: 10px;
 }
 .cart-table th {
-    padding: 15px;
+    padding: 10px;
 }
 .cart-image {
     max-width: 300px;

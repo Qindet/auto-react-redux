@@ -1,11 +1,9 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import withService from "../components/hoc/with-service"
 import {fetchAutoItem, itemAdded} from "../actions"
 import AutoItemDetails from "../components/auto-item-details";
 import Spinner from "../components/spinner";
 import ErrorIndicator from "../components/error-indicator";
-import compose from "../utils";
 
 const AutoItemDetailsContainer = ({fetchItem,autoItem, loadingItem, errorItem, itemId, itemAdded,service}) => {
 
@@ -41,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // возможно нужен подход для одного запроса а не получения из всего скорее всего нужно так и сделать
-export default compose(withService(), connect(mapStateToProps, mapDispatchToProps))(AutoItemDetailsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(AutoItemDetailsContainer)
