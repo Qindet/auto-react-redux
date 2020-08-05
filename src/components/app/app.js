@@ -15,7 +15,7 @@ const App = () => {
                 <Route path="/" component={MainPage} exact/>
                 <Route path="/auto/:id" render={({match}) => {
                     const {id} = match.params
-                    return <AutoItemDetailsContainer itemId={id}/>
+                    return <AutItemDetailsContainer itemId={id}/>
                 }} /> //возможно сделать на второй странице просто лист и выбор машин
                 <Route path="/cart" component={CartPage}/>
                 <Redirect to="/"/>
